@@ -5,4 +5,4 @@ cd helloworld-main
 
 
 
-# gccgo -c main.go
+# CGO_ENABLED=0 GOOS=aix GOARCH=ppc64 go build -o binary
