@@ -38,7 +38,7 @@ func main() {
 		return
 	}
 
-	fd, err = syscall.Open("something.txt", syscall.O_RDWR, 755)
+	fd, err = syscall.Open(*path, syscall.O_RDWR, 755)
 	log.Println("bytes written", bytesWritten)
 	//Read from file using File Descriptor
 	data := make([]byte, 50)
