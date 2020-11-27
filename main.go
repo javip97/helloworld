@@ -10,8 +10,18 @@ func main() {
 
 	path := flag.String("path", "/home/guest/go/helloworld-main/testfile.txt", "usage")
 	flag.Parse()
-	fd, err := syscall.Open(*path, syscall.O_RDWR, 755)
+
+	fd, err := syscall.Open(*path, syscall.O_CREAT|syscall.O_RDWR|syscall.O_TRUNC, 755)
+
+	if err != nil {
+		log.Println("creating file error", err)
+		return
+	}
+
+	log.Println(fd)
 	log.Println(*path)
+
+	fd, err = syscall.Open(*path, syscall.O_RDWR, 755)
 	if err != nil {
 		log.Println("there has been an error")
 		log.Print(err)
