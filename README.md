@@ -7,7 +7,7 @@ cd helloworld-main
 curl -L -O https://github.com/javip97/helloworld/archive/main.zip
 unzip main.zip
 cd helloworld-main
-./binary -fileMode -agentHost="thales-cert" -fileBasePath="out/"
+./binary -fileMode -agentHost="thales-cert" -fileBasePath="/usr/go/helloworld-main/out/"
 
 
 # Clean
