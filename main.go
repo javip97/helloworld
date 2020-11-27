@@ -1,13 +1,17 @@
 package main
 
 import (
+	"flag"
 	"log"
 	"syscall"
 )
 
 func main() {
 
-	fd, err := syscall.Open("something.txt", syscall.O_RDWR, 755)
+	path := flag.String("path", "/home/guest/go/helloworld-main/testfile.txt", "usage")
+	flag.Parse()
+	fd, err := syscall.Open(*path, syscall.O_RDWR, 755)
+	log.Println(*path)
 	if err != nil {
 		log.Println("there has been an error")
 		log.Print(err)
